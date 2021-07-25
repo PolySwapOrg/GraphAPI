@@ -1,0 +1,68 @@
+import React, { useState, useEffect } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import { Dropdown, Anchor, Icon, Div } from "atomize";
+
+const { ParaSwap } = require('paraswap');
+
+
+const menuList = (
+  <Div>
+    {["Option 1", "Option 2", "Option 3"].map((name, index) => (
+      <Anchor d="block" p={{ y: "0.25rem" }}>
+        {name}
+      </Anchor>
+    ))}
+  </Div>
+);
+
+
+function App() {
+ const [showDropdown, setshowDropdown] = useState(false);
+
+
+  const paraSwap = new ParaSwap(137);
+  const network = 1;
+
+async function getTokens() {
+  return paraSwap.getTokens();
+}
+
+async function run() {
+  const tokens = await getTokens();
+  console.log('tokens', tokens);
+}
+
+run();
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+        <Dropdown
+         isOpen={showDropdown}
+         onClick={() =>
+           setshowDropdown(!showDropdown)
+         }
+         menu={menuList}
+       >
+         Click me
+       </Dropdown>
+      </header>
+
+
+    </div>
+  );
+}
+
+export default App;
