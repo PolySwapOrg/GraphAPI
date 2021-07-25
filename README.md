@@ -1,7 +1,7 @@
 #  EthCC Hackathon Submission for ParaSwap
 Project is live [Website ](https://para-swap.vercel.app/).
 
-![Youtube Video](https://youtu.be/nHkn5EK4e_0)
+[Youtube Video](https://youtu.be/nHkn5EK4e_0)
 
 ## Project Description
 
